@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Outfit',sans-serif}
+body{background:#f7f4f0;color:#2D2426}
+.nav{background:#f7f4f0;padding:16px 60px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #d9d0c7;position:sticky;top:0;z-index:100}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-circle{width:38px;height:38px;background:#197161;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-circle svg{width:20px;height:20px;fill:white}
+.nav-brand{font-size:15px;font-weight:600;color:#2D2426;letter-spacing:.08em}
+.nav-links{display:flex;gap:28px;font-size:13px;color:#445952}
+.btn-p{background:#197161;color:white;border:none;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:500;cursor:pointer}
+.btn-o{background:transparent;color:#197161;border:1.5px solid #197161;padding:10px 22px;border-radius:50px;font-size:14px;font-weight:500;cursor:pointer}
+.btn-taupe{background:#A5887D;color:white;border:none;padding:13px 28px;border-radius:50px;font-size:14px;font-weight:500;cursor:pointer}
+.tag-g{display:inline-block;background:#ABD69D;color:#2a5040;font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:12px}
+.tag-t{display:inline-block;background:#ecddd7;color:#7a5c52;font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:12px}
+.hero{padding:72px 60px;display:flex;align-items:center;gap:48px}
+.hero-text{flex:1.1}
+.hero h1{font-size:42px;font-weight:600;color:#2D2426;line-height:1.2;margin-bottom:16px}
+.hero p{font-size:15px;font-weight:300;color:#445952;line-height:1.85;margin-bottom:28px}
+.hero-btns{display:flex;gap:12px;margin-bottom:36px}
+.hero-stats{display:flex;gap:28px;align-items:center}
+.stat-num{font-size:24px;font-weight:600;color:#197161}
+.stat-label{font-size:12px;color:#445952}
+.stat-div{width:1px;height:32px;background:#d9d0c7}
+.hero-img{flex:1;background:#ABD69D;border-radius:60% 40% 55% 45% / 50% 50% 50% 50%;height:280px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:#2a5040;font-size:14px;position:relative}
+.hero-badge{position:absolute;bottom:-10px;right:0;background:white;border-radius:16px;padding:10px 14px;border:1px solid #d9d0c7;display:flex;gap:8px;align-items:center;font-size:12px;color:#2D2426}
+.pillars{background:#445952;padding:36px 60px;display:grid;grid-template-columns:repeat(3,1fr)}
+.pillar{padding:20px 24px;text-align:center}
+.pillar:nth-child(2){border-left:1px solid rgba(171,214,157,.2);border-right:1px solid rgba(171,214,157,.2)}
+.pillar-icon{font-size:28px;margin-bottom:10px}
+.pillar h3{font-size:14px;font-weight:500;color:white;margin-bottom:6px}
+.pillar p{font-size:12px;font-weight:300;color:#ABD69D;line-height:1.7}
+.section{padding:56px 60px}
+.section-center{text-align:center;margin-bottom:32px}
+.section h2{font-size:28px;font-weight:600;color:#2D2426}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service-card{background:white;border-radius:20px;padding:22px;border:1px solid #d9d0c7}
+.service-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-size:22px}
+.service-icon.green{background:#eaf6e5}
+.service-icon.taupe{background:#ecddd7}
+.service-card h3{font-size:14px;font-weight:500;color:#2D2426;margin-bottom:5px}
+.service-card p{font-size:12px;font-weight:300;color:#445952;line-height:1.7}
+.service-card.dark{background:#197161;border:none}
+.service-card.dark h3{color:#ABD69D}
+.service-card.dark p{color:rgba(171,214,157,.75)}
+.service-card.dark a{color:#ABD69D;font-size:12px}
+.team-section{padding:56px 60px;background:#edeae5}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.team-card{background:white;border-radius:24px;overflow:hidden;border:1px solid #d9d0c7;text-align:center}
+.team-img{height:120px;display:flex;align-items:center;justify-content:center}
+.team-img .avatar{width:64px;height:64px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-size:28px}
+.team-card-body{padding:14px 16px}
+.team-card-body h3{font-size:14px;font-weight:500;color:#2D2426}
+.team-card-body p{font-size:12px;font-weight:300;color:#445952;margin-top:3px}
+.testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.testimonial{background:white;border-radius:20px;padding:22px;border:1px solid #d9d0c7}
+.stars{display:flex;gap:3px;margin-bottom:12px;color:#A5887D;font-size:16px}
+.testimonial p{font-size:13px;font-weight:300;color:#445952;line-height:1.8;margin-bottom:16px}
+.author{display:flex;align-items:center;gap:8px}
+.author-avatar{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500}
+.author h4{font-size:13px;font-weight:500;color:#2D2426}
+.cta-section{padding:64px 60px;background:#2D2426;text-align:center}
+.cta-tag{display:inline-block;background:rgba(171,214,157,.15);color:#ABD69D;font-size:11px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:5px 16px;border-radius:50px;margin-bottom:16px}
+.cta-section h2{font-size:30px;font-weight:600;color:white;margin-bottom:10px}
+.cta-section .sub{font-size:14px;font-weight:300;color:#A5887D;margin-bottom:40px;line-height:1.8}
+.steps{display:flex;justify-content:center;align-items:center;gap:0;margin-bottom:36px}
+.step{text-align:center}
+.step-num{width:48px;height:48px;background:rgba(255,255,255,.08);border-radius:50%;border:1px solid rgba(171,214,157,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:16px;font-weight:500;color:#ABD69D}
+.step p{font-size:12px;font-weight:300;color:#ABD69D}
+.step-line{width:48px;height:1px;background:#445952;margin-bottom:22px}
+footer{padding:36px 60px;background:#1e1719;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:24px}
+.footer-brand{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.footer-circle{width:32px;height:32px;background:#197161;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.footer-name{font-size:13px;font-weight:600;color:#ABD69D;letter-spacing:.06em}
+footer p{font-size:12px;font-weight:300;color:#A5887D;line-height:1.9}
+.footer-title{font-size:11px;font-weight:500;color:#445952;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px}
+.social-icons{display:flex;gap:12px;font-size:20px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-circle"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+    <span class="nav-brand">INTEGRAVET</span>
+  </div>
+  <div class="nav-links">
+    <span>Inicio</span><span>Servicios</span><span>Equipo</span><span>Contacto</span>
+  </div>
+  <button class="btn-p">Agenda tu hora</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <span class="tag-g">Clínica veterinaria · Talca</span>
+    <h1>El cuidado que<br>tu mascota merece</h1>
+    <p>Atención veterinaria integral para perros, gatos y aves en Talca. Profesionales comprometidos con el bienestar de tus animales.</p>
+    <div class="hero-btns">
+      <button class="btn-p">Agenda en línea</button>
+      <button class="btn-o">Ver servicios</button>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">+500</div><div class="stat-label">pacientes atendidos</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-num">5★</div><div class="stat-label">en Google</div></div>
+      <div class="stat-div"></div>
+      <div><div class="stat-num">10+</div><div class="stat-label">años de experiencia</div></div>
+    </div>
+  </div>
+  <div class="hero-img">
+    📷 Foto principal
+    <div class="hero-badge">📅 Agenda disponible hoy</div>
+  </div>
+</section>
+
+<div class="pillars">
+  <div class="pillar"><div class="pillar-icon">🩺</div><h3>Atención integral</h3><p>Consultas, cirugías y vacunas bajo un mismo techo.</p></div>
+  <div class="pillar"><div class="pillar-icon">📅</div><h3>Agenda online</h3><p>Reserva tu hora en minutos desde donde estés.</p></div>
+  <div class="pillar"><div class="pillar-icon">❤️</div><h3>Trato humano</h3><p>Tratamos a tu mascota con el mismo amor que tú.</p></div>
+</div>
+
+<section class="section" style="background:#f7f4f0">
+  <div class="section-center"><span class="tag-g">Lo que hacemos</span><h2>Nuestros servicios</h2></div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon green">💉</div><h3>Vacunación</h3><p>Plan de vacunas para todas las edades.</p></div>
+    <div class="service-card"><div class="service-icon green">🔪</div><h3>Cirugías</h3><p>Procedimientos con equipamiento moderno.</p></div>
+    <div class="service-card"><div class="service-icon taupe">🔬</div><h3>Diagnóstico</h3><p>Laboratorio y exámenes en clínica.</p></div>
+    <div class="service-card"><div class="service-icon green">✂️</div><h3>Peluquería</h3><p>Estética y aseo profesional.</p></div>
+    <div class="service-card"><div class="service-icon taupe">💊</div><h3>Farmacia</h3><p>Medicamentos y antiparasitarios.</p></div>
+    <div class="service-card dark"><h3>¿No ves lo que necesitas?</h3><p>Contáctanos y te orientamos.</p><br><a href="#">Escribir por WhatsApp →</a></div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="section-center"><span class="tag-t">Quiénes somos</span><h2>Nuestro equipo</h2></div>
+  <div class="team-grid">
+    <div class="team-card"><div class="team-img" style="background:#ABD69D"><div class="avatar">👤</div></div><div class="team-card-body"><h3>Dr/a. Nombre Apellido</h3><p>Médico veterinario</p></div></div>
+    <div class="team-card"><div class="team-img" style="background:#A5887D"><div class="avatar">👤</div></div><div class="team-card-body"><h3>Dr/a. Nombre Apellido</h3><p>Médico veterinario</p></div></div>
+    <div class="team-card"><div class="team-img" style="background:#445952"><div class="avatar">👤</div></div><div class="team-card-body"><h3>Dr/a. Nombre Apellido</h3><p>Médico veterinario</p></div></div>
+  </div>
+</section>
+
+<section class="section" style="background:#f7f4f0">
+  <div class="section-center"><span class="tag-g">Lo que dicen</span><h2>Nuestros clientes</h2></div>
+  <div class="testimonials">
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"Excelente atención, el equipo fue muy cariñoso con mi perro. Lo recomiendo completamente."</p><div class="author"><div class="author-avatar" style="background:#eaf6e5;color:#197161">MG</div><h4>María González</h4></div></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"Agendé en línea en 2 minutos. Puntual, profesional y muy buena atención a mi gata."</p><div class="author"><div class="author-avatar" style="background:#ecddd7;color:#7a5c52">CM</div><h4>Carlos Muñoz</h4></div></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <span class="cta-tag">Es fácil y rápido</span>
+  <h2>¿Listo para agendar?</h2>
+  <p class="sub">Reserva la hora de tu mascota en minutos.<br>Sin llamadas, sin esperas.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><p>Haz clic abajo</p></div>
+    <div class="step-line"></div>
+    <div class="step"><div class="step-num">2</div><p>Elige hora y servicio</p></div>
+    <div class="step-line"></div>
+    <div class="step"><div class="step-num">3</div><p>¡Confirmación lista!</p></div>
+  </div>
+  <button class="btn-taupe">Reservar mi hora ahora</button>
+</section>
+
+<footer>
+  <div><div class="footer-brand"><div class="footer-circle">🐾</div><span class="footer-name">INTEGRAVET</span></div><p>Clínica veterinaria<br>Talca, Región del Maule</p></div>
+  <div><p class="footer-title">Contacto</p><p>+56 9 XXXX XXXX<br>info@integravet.cl</p></div>
+  <div><p class="footer-title">Horarios</p><p>Lun–Vie: 9:00–19:00<br>Sáb: 9:00–14:00</p></div>
+  <div><p class="footer-title">Síguenos</p><div class="social-icons"><span>📸</span><span>👍</span><span>💬</span></div></div>
+</footer>
+
+</body>
+</html>
